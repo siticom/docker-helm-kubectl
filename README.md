@@ -2,6 +2,6 @@
 
 docker image with helm and kubectl for GitLab CI
 
-kubectl version: v1.12.7
+kubectl version: v1.19.0
 
-helm version: v2.13.1
+helm version: v3.3.1

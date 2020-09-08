@@ -1,10 +1,10 @@
 FROM alpine as builder
 
-ARG KUBECTL_VERSION="v1.12.7"
-ARG HELM_VERSION="v2.13.1"
+ARG KUBECTL_VERSION="v1.19.0"
+ARG HELM_VERSION="v3.3.1"
 
 RUN wget -O /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
-    && wget -O helm.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz \
+    && wget -O helm.tar.gz https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
     && tar xf helm.tar.gz \
     && mv linux-amd64/helm /usr/local/bin/helm \
     && chmod +x /usr/local/bin/kubectl \
@@ -12,7 +12,7 @@ RUN wget -O /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-rel
 
 FROM alpine
 
-LABEL maintainer="Lukas Steiner <lukas.steiner@steinheilig.de>"
+LABEL maintainer="Lukas Steiner <lukas.steiner@siticom.de>"
 LABEL kubectl_version=${KUBECTL_VERSION}
 LABEL helm_version=${HELM_VERSION}
 
